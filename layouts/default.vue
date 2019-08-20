@@ -1,12 +1,23 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
       fixed
       app
     >
+      <v-row align="center" justify="center" class="pa-2">
+        <img
+          src="~/assets/img/key-logo.png"
+          width="100"
+          max-width="100"
+          >
+        </img>
+      </v-row>
+      <v-card flat class="flex-column text-center">
+        <div class="text-break">一般社団法人</div>
+        <div class="title font-weight-black">焼き餃子協会</div>
+        <div class="font-weight-thin">Yaki Gyoza Association</div>
+      </v-card>
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -24,67 +35,14 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
-    </v-app-bar>
     <v-content>
-      <v-container>
+      <v-container fluid fill-width class="pa-0">
         <nuxt />
       </v-container>
+      <v-footer>
+        <span>&copy;2018-2019 一般社団法人焼き餃子協会 All Rights Reserved.</span>
+      </v-footer>
     </v-content>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer
-      :fixed="fixed"
-      app
-    >
-      <span>&copy; 2019</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -92,26 +50,39 @@
 export default {
   data () {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
+      drawer: true,
+      fixed: true,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+          icon: 'mdi-information',
+          title: '焼き餃子協会について',
+          to: '/#about'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'mdi-chat-alert',
+          title: 'おしらせ',
+          to: '/news'
+        },
+        {
+          icon: 'mdi-account-heart-outline',
+          title: '入会案内',
+          to: '/entry'
+        },
+        {
+          icon: 'mdi-account-group',
+          title: '賛助会員の皆さま',
+          to: '/members'
+        },
+        {
+          icon: 'mdi-contact-mail-outline',
+          title: 'お問い合わせ',
+          to: '/contact'
         }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      ]
     }
+  },
+  mounted() {
+    this.drawer = true;
   }
 }
 </script>

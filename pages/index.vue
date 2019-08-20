@@ -4,78 +4,69 @@
     justify-center
     align-center
   >
-    <v-flex
-      xs12
-      sm8
-      md6
-    >
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
+  <v-card
+    flat
+    tile
+    width="100vw"
+    height="700px"
+    img="/img/key-gyoza.jpg">
+    <p class="font-weight-thin white--text ma-4 text-center overline">美味しい餃子を作る人と食べる人を、もっと増やしたい。</p>
+    <v-overlay
+      absolute
+      opacity="0">
+      <v-card
+        light
+        width="320px"
+        img="/img/cover.png"
+        class="px-7 py-9 text-center">
+        <img src="~/assets/img/key-copy.png" />
+        <v-card-text class="white--text">焼き餃子協会は、美味しい餃子を作る人と、美味しく焼く人、美味しく食べる人をつなげる団体です。</v-card-text>
         <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
+          <v-col cols="12">
+            <div>
+              <v-btn href="/#about" width="90%" color="primary">焼き餃子協会について</v-btn>
+            </div>
+            <div class="mt-3">
+              <v-btn href="/#entry" width="90%" color="primary">入会案内</v-btn>
+            </div>
+          </v-col>
         </v-card-actions>
       </v-card>
-    </v-flex>
+    </v-overlay>
+  </v-card>
+
+  <v-card id="about"
+    flat
+    tile
+    img="/img/about_bg.jpg">
+    <v-card  color="rgb(0,0,0,0.4)">
+      <v-row justify="center" align="center">
+        <v-col md="5" offset-md="1" sm="12">
+          <v-card color="rgb(0,0,0, 0.3)">
+            <v-card-title class="headline white--text">
+              一般社団法人焼き餃子協会とは
+            </v-card-title>
+            <v-card-text class="body-1 white--text font-weight-medium">
+              <p>世界には餃子（またはそれに似た料理）がさまざまに存在します。<br>日本では焼き餃子が独自に発達し、多様な具による餃子が開発されて、通販で購入できる数だけでも1500種類以上存在します。</p>
+              <p>一般社団法人焼き餃子協会は、消費者がより美味しい餃子を楽しむ社会を目指して、餃子や油・調味料そして調理器具などの餃子に関連する業界の発展を支援し、また消費者にも美味しい餃子の焼き方や食べ方などの情報提供を行って参ります。</p>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col md="6" sm="12">
+          <v-card color="transparent" class="text-center">
+            <img src="~/assets/img/about_img.png" />
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-card>
+  </v-card>
+
+  <v-card id="entry" flat tile>
+    <v-card-title>
+      入会のご案内
+    </v-card-title>
+  </v-card>
+
   </v-layout>
 </template>
 
