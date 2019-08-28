@@ -50,7 +50,7 @@
     </v-card>
   </v-parallax>
 
-  <v-card id="entry" color="rgba(229, 211, 184, 0.5)" flat tile class="pt-1">
+  <v-card id="entry" color="rgba(229, 211, 184, 0.5)" flat tile class="py-10">
     <v-card-title class="d-flex justify-center align-center flex-no-wrap">
       <h1 class="display-2">
         <img src="~/assets/img/entry_left.png" alt="" />
@@ -203,17 +203,81 @@
 
   </v-card>
 
-  <v-card id="contact" color="rgba(229, 211, 184, 0.5)" flat tile class="pa-4" img="/img/contact_bg.jpg">
+  <v-card id="contact" color="rgba(229, 211, 184, 0.5)" flat tile class="px-4 py-10" img="/img/contact_bg.jpg">
     <v-card-title class="d-flex justify-center align-center flex-no-wrap">
       <h1 class="display-2 white--text">
         お問い合わせ・ご相談
       </h1>
     </v-card-title>
 
+    <v-card color="rgb(255,255,255,0.9)" class="pa-4">
+      <v-form v-model="valid">
+        <v-text-field
+          v-model="email"
+          :rules="emailRules"
+          label="メールアドレス"
+          required
+        ></v-text-field>
+        <v-row>
+          <v-col>
+            <v-text-field
+              v-model="name"
+              :rules="nameRules"
+              label="お名前"
+              required
+            ></v-text-field>
+          </v-col>
+          <v-col>
+            <v-text-field
+              v-model="company"
+              label="会社名、所属、役職等"
+              required
+            ></v-text-field>
+          </v-col>
+        </v-row>
+          <v-textarea
+            v-model="message"
+            :rules="messageRules"
+            label="メッセージ"
+            outlined
+            required
+          ></v-textarea>
+
+      </v-form>
+      <v-card-text>
+        @gyoza.or.jpよりお返事をさせて頂きます。
+      </v-card-text>
+      <v-card-actions v-if="valid">
+        <v-btn large block color="primary" >送信</v-btn>
+      </v-card-actions>
+    </v-card>
+
   </v-card>
 
   </v-layout>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    valid: false,
+    email: '',
+    emailRules: [
+      v => !!v || 'メールアドレスは必須項目です',
+      v => /.+@.+/.test(v) || '半角英数記号でメールアドレスを入力してください',
+    ],
+    name: '',
+    company: '',
+    nameRules: [
+      v => !!v || 'お名前は必ず入力してください'
+    ],
+    message: '',
+    messageRules: [
+      v => !!v || 'メッセージは必ず入力してください'
+    ],
+  }),
+}
+</script>
 
 <style scoped lang="scss">
 h1.display-2 {
