@@ -1,15 +1,14 @@
 <template>
   <v-app>
+
     <v-navigation-drawer
-      v-model="drawer"
-      fixed
       app
-    >
+      v-model="drawer">
       <v-row align="center" justify="center" class="pa-2">
         <img
           src="~/assets/img/key-logo.png"
-          width="100"
-          max-width="100"
+          width="100px"
+          max-width="100px"
           >
         </img>
       </v-row>
@@ -35,14 +34,21 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title class="title font-weight-thin">一般社団法人 焼き餃子協会</v-toolbar-title>
+    </v-app-bar>
+
     <v-content>
-      <v-container fluid fill-width class="pa-0">
+      <v-container fluid class="pa-0">
         <nuxt />
       </v-container>
       <v-footer>
         <span>&copy;2018-2019 一般社団法人焼き餃子協会 All Rights Reserved.</span>
       </v-footer>
     </v-content>
+
   </v-app>
 </template>
 
@@ -50,8 +56,8 @@
 export default {
   data () {
     return {
-      drawer: true,
-      fixed: true,
+      drawer: false,
+      fixed: false,
       items: [
         {
           icon: 'mdi-information',
@@ -80,9 +86,6 @@ export default {
         }
       ]
     }
-  },
-  mounted() {
-    this.drawer = true;
   }
 }
 </script>
