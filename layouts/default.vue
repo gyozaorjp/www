@@ -5,12 +5,9 @@
       app
       v-model="drawer">
       <v-row align="center" justify="center" class="pa-2">
-        <img
-          src="~/assets/img/key-logo.png"
-          width="100px"
-          max-width="100px"
-          >
-        </img>
+        <nuxtLink to="/">
+          <img src="~/assets/img/key-logo.png" width="100px" max-width="100px" />
+        </nuxtLink>
       </v-row>
       <v-card flat class="flex-column text-center">
         <div class="text-break">一般社団法人</div>
@@ -22,6 +19,7 @@
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"
+          :href="item.href"
           router
           exact
         >
@@ -37,7 +35,9 @@
 
     <v-app-bar app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title class="title font-weight-thin">一般社団法人 焼き餃子協会</v-toolbar-title>
+      <v-toolbar-title class="title font-weight-thin">
+        <v-btn text depressed href="/">一般社団法人 焼き餃子協会</v-btn>
+      </v-toolbar-title>
     </v-app-bar>
 
     <v-content>
@@ -45,7 +45,11 @@
         <nuxt />
       </v-container>
       <v-footer>
-        <span>&copy;2018-2019 一般社団法人焼き餃子協会 All Rights Reserved.</span>
+        <p class="font-weight-light">
+          <span>&copy;2018-2019&nbsp;</span>
+          <a href="https://www.gyoza.or.jp/">一般社団法人焼き餃子協会</a>
+          <span>&nbsp;All Rights Reserved.</span>
+        </p>
       </v-footer>
     </v-content>
 
@@ -62,7 +66,7 @@ export default {
         {
           icon: 'mdi-information',
           title: '焼き餃子協会について',
-          to: '/#about'
+          href: '/#about'
         },
         {
           icon: 'mdi-chat-alert',
@@ -72,7 +76,7 @@ export default {
         {
           icon: 'mdi-account-heart-outline',
           title: '入会案内',
-          to: '/entry'
+          href: '/#entry'
         },
         {
           icon: 'mdi-account-group',
@@ -82,10 +86,19 @@ export default {
         {
           icon: 'mdi-contact-mail-outline',
           title: 'お問い合わせ',
-          to: '/contact'
+          href: '/#contact'
         }
       ]
     }
   }
 }
 </script>
+<style scoped>
+.v-application {
+  font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+}
+.v-footer a {
+  text-decoration: none;
+  color: #000;
+}
+</style>

@@ -6,8 +6,7 @@
   >
 
   <v-parallax
-    class="pb-10"
-    style="height: 90vh"
+    style="height: 85vh"
     src="/img/key-gyoza.jpg">
     <p class="font-weight-thin gray--text ma-4 text-center overline">美味しい餃子を作る人と食べる人を、もっと増やしたい。</p>
       <v-card
@@ -21,13 +20,13 @@
         <v-card-actions>
           <v-col cols="12">
             <div>
-              <v-btn href="/#about" width="90%" color="primary">焼き餃子協会について</v-btn>
+              <v-btn href="#about" width="90%" color="primary">焼き餃子協会について</v-btn>
             </div>
             <div class="mt-3">
-              <v-btn href="/#entry" width="90%" color="primary">入会案内</v-btn>
+              <v-btn href="#entry" width="90%" color="primary">入会案内</v-btn>
             </div>
             <div class="mt-3">
-              <v-btn href="/#contact" width="90%" color="primary">お問い合わせ</v-btn>
+              <v-btn href="#contact" width="90%" color="primary">お問い合わせ</v-btn>
             </div>
           </v-col>
         </v-card-actions>
@@ -123,13 +122,14 @@
         賛助会員の年会費は一口以上何口でも承ります。<br>
         法人会員の登録には審査があります。
       </v-card-text>
-      <v-card-action>
+      <v-card-actions>
         <div class="ma-2">
-          <v-btn large color="primary" class="mx-1">法人会員に登録する</v-btn>
+          <v-btn large color="primary" class="mx-1">法人賛助会員として入会する</v-btn>
           <v-btn large outlined class="mx-1" href="/pdf/sponsor-entry.pdf">ご案内資料をダウンロード</v-btn>
           <v-btn large outlined class="mx-1">相談する</v-btn>
+          <v-btn large outlined class="mx-1">賛助会員リスト</v-btn>
         </div>
-      </v-card-action>
+      </v-card-actions>
     </v-card>
 
     <v-card class="ma-4 pa-2">
@@ -169,12 +169,12 @@
       <v-card-text>
         個人賛助会費： 324円〜/月
       </v-card-text>
-      <v-card-action>
+      <v-card-actions>
         <div class="ma-2">
-          <v-btn large color="primary" class="mx-1">個人会員に登録する</v-btn>
+          <v-btn large color="primary" class="mx-1" href="https://yaki-gyoza.stores.jp/items/5c528c8faee1bb700384f98a" target="_blank">個人賛助会員として入会する</v-btn>
           <v-btn large outlined class="mx-1">相談する</v-btn>
         </div>
-      </v-card-action>
+      </v-card-actions>
     </v-card>
 
     <v-card class="ma-4 pa-2">
@@ -200,6 +200,7 @@
         </v-list-item>
       </v-card>
     </v-card>
+
   </v-card>
 
   <v-card id="contact" color="rgba(229, 211, 184, 0.5)" flat tile class="pa-4" img="/img/contact_bg.jpg">

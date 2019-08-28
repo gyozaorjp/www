@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import goTo from 'vuetify/es5/services/goto'
 
 export default {
   mode: 'universal',
@@ -14,7 +15,8 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { href: 'https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400,500,700&display=swap', rel: 'stylesheet' }
     ]
   },
   /*
@@ -58,7 +60,24 @@ export default {
           error: '#900',
         },
       }
+    },
+    router: {
+      scrollBehavior: (to, from, savedPosition) => {
+        let pos = 0;
+
+        if (to.hash) {
+          pos = to.hash
+        } else if (savedPosition) {
+          pos = savedPosition.y
+        }
+        else {
+          pos = 0
+        }
+
+        return goTo(pos)
+      }
     }
+
   },
   /*
   ** Build configuration
